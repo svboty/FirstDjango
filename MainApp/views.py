@@ -20,11 +20,7 @@ items = [
 
 
 def home(request):
-    text = f"""
-    <h1>\"Изучаем django\"</h1>
-    <strong>Автор</strong>: <i>{author['surname']} {author['name'][0]}.{author['middle_name'][0]}. </i>
-    """
-    return HttpResponse(text)
+    return render(request, 'index.html')
 
 
 def about(request):
