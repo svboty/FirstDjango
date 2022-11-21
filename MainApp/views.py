@@ -24,22 +24,22 @@ def home(request):
 
 
 def about(request):
-    text = f"""
-    Имя: <b>{author['name']}</b><br>
-    Отчество <b>{author['middle_name']}</b><br>
-    Фамилия: <b>{author['surname']}</b><br>
-    телефон: <b>{author['phone']}</b><br>
-    email: <b>{author['email']}</b><br>
-    """
-    return HttpResponse(text)
+    context = {
+        "author": author
+    }
+    return render(request, 'about.html', context)
 
 
 def items_view(request):
-    answer = "<ol>"
-    for item in items:
-        answer += f"<li><a href=/item/{item['id']}>id: {item['id']}, название: {item['name']} кол-во: {item['quantity']}</a></li>"
-    answer += "</ol>"
-    return HttpResponse(answer)
+    context = {
+        "items": items
+    }
+    # answer = "<ol>"
+    # for item in items:
+    #     answer += f"<li><a href=/item/{item['id']}>id: {item['id']}, название: {item['name']} кол-во: {item['quantity']}</a></li>"
+    # answer += "</ol>"
+    # return HttpResponse(answer)
+    return render(request, 'items_list.html', context)
 
 
 def item_view(request, id):
