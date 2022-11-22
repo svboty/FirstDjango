@@ -6,8 +6,9 @@
 </head>
 <body>
 <a href="/">Домой</a>/<a href="/items">Список товаров</a>
-<h2>{{ item.name }}</h2>
-<p>Доступное кол-во: {{ item.count | default:"Товар отсутствует"}}</p>
+<h2>Товар: {{ item.name }}</h2>
+<h2>Бренд: {{ item.brand }}</h2>
+<p>Доступное кол-во: {{ item.count | default:"Товар отсутствует на складе"}}</p>
 <a href="/items">К списку товаров</a>
 </body>
 </html>
