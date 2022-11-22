@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
+{% extends 'base.html' %}
+{% block title %}
+Список товаров
+{% endblock %}
+{% block style %}
         li {
             display: inline-block;
             border: 2px solid blue;
             padding: 10px;
         }
-    </style>
-</head>
-<body>
-<a href="/">Домой</a>/<a href="/items">Список товаров</a>
+{% endblock %}
+
+{% block data %}
 <h2>Список товаров</h2>
 <ol>
     {% for item in items %}
@@ -24,5 +22,4 @@
         </a>
     {% endfor %}
 </ol>
-</body>
-</html>
+{% endblock %}
