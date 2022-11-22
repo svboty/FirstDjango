@@ -45,6 +45,8 @@ def items_view(request):
 def item_view(request, id):
     for item in items:
         if item['id'] == id:
-            answer = f"<b>название:</b> {item['name']} <b>кол-во:</b> {item['quantity']}"
-            return HttpResponse(answer)
+            context = {
+                "item": item
+            }
+            return render(request, 'item.html', context)
     raise Http404(f'Товар с id {id} не найден')
