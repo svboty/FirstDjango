@@ -9,5 +9,5 @@
 <h2>Товар: {{ item.name }}</h2>
 <h2>Бренд: {{ item.brand }}</h2>
 <p>Доступное кол-во: {{ item.count | default:"Товар отсутствует на складе"}}</p>
-<a href="/items">К списку товаров</a>
+<a href={% url 'mainapp:list-items' %}>К списку товаров</a>
 {% endblock %}

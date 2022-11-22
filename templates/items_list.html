@@ -3,18 +3,21 @@
 Список товаров
 {% endblock %}
 {% block style %}
-        li {
+    <style>
+    li {
             display: inline-block;
             border: 2px solid blue;
             padding: 10px;
         }
+    </style>
+
 {% endblock %}
 
 {% block data %}
 <h2>Список товаров</h2>
 <ol>
     {% for item in items %}
-        <a href="/item/{{ item.id }}">
+        <a href={% url 'mainapp:item' item.id %}>
             <li>
                 <div>{{ item.name }}</div>
                 <div>описание: {{ item.description | default_if_none:"Описание не добавлено"}}</div>
