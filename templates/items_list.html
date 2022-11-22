@@ -7,11 +7,13 @@
 <body>
 <a href="/">Домой</a>/<a href="/items">Список товаров</a>
 <h2>Список товаров</h2>
-<ol>
+
     {% for item in items %}
-        <li><a href="/item/{{ item.id }}">{{ item.name }}</a></li>
+        <a href="/item/{{ item.id }}" style="display: block; border: 3px solid black; width: 300px;	height: 100px;">
+            <h3>{{ item.name }}</h3>
+            описание: {{ item.description | default_if_none:"Описание не добавлено"}}
+        </a>
     {% endfor %}
-</ol>
 
 </body>
 </html>

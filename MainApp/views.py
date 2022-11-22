@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.http import Http404
 from MainApp.models import Item
 
@@ -24,10 +24,8 @@ def items_view(request):
 
 
 def item_view(request, id):
-    for item in items:
-        if item['id'] == id:
-            context = {
-                "item": item
-            }
-            return render(request, 'item.html', context)
-    raise Http404(f'Товар с id {id} не найден')
+    item = get_object_or_404(Item, pk=id)
+    context = {
+        "item": item
+    }
+    return render(request, 'item.html', context)

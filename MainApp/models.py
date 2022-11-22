@@ -5,6 +5,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     count = models.PositiveIntegerField()
+    description = models.TextField('Описание', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Товар'
